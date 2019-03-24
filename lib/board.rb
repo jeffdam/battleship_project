@@ -64,4 +64,12 @@ class Board
             puts row.join(" ")
         end
     end
+
+    def cheat
+        Board.print_grid(@grid)
+    end
+
+    def print
+        Board.print_grid(hidden_ships_grid)
+    end
 end
