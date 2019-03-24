@@ -59,4 +59,9 @@ class Board
         end
     end
 
+    def self.print_grid(board)
+        board.each do |row|
+            puts row.join(" ")
+        end
+    end
 end
