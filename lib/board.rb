@@ -39,4 +39,12 @@ class Board
         end
     end
 
+    def place_random_ships
+        until num_ships == @size * 0.25
+            a = rand(0...@grid.length)
+            b = rand(0...@grid.length)
+            self[[a,b]] = :S
+        end
+    end
+
 end
