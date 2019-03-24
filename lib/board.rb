@@ -47,4 +47,16 @@ class Board
         end
     end
 
+    def hidden_ships_grid
+        @grid.map.with_index do |row, row_i|
+            row.map.with_index do |col, col_i|
+                if @grid[row_i][col_i] == :S
+                    :N
+                else
+                    @grid[row_i][col_i]
+                end
+            end
+        end
+    end
+
 end
