@@ -1,3 +1,5 @@
+require "byebug"
+
 class Board
   
     attr_reader :size
@@ -40,11 +42,21 @@ class Board
     end
 
     def place_random_ships
-        until num_ships == @size * 0.25
-            a = rand(0...@grid.length)
-            b = rand(0...@grid.length)
-            self[[a,b]] = :S
+        allpos = all_pos
+        until num_ships == (@size * 0.25).to_i
+            pos = allpos.shift
+            self[pos] = :S
         end
+    end
+
+    def all_pos
+        all_pos = []
+        (0...@grid.length).each do |a|
+            (0...@grid.length).each do |b|
+                all_pos << [a,b]
+            end
+        end
+        all_pos.shuffle
     end
 
     def hidden_ships_grid
