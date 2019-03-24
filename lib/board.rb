@@ -17,4 +17,17 @@ class Board
         @grid[a][b] = val
     end
 
+    def num_ships
+        count = 0
+        @grid.each_with_index do |row, row_i|
+            row.each_with_index do |col, col_i|
+                count += 1 if @grid[row_i][col_i] == :S
+            end
+        end
+
+        count
+    end
+
+    def attach
+
 end
